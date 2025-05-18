@@ -1,5 +1,5 @@
 .faq {
-  padding: 100px 40px;
+  padding: clamp(40px, 5vw, 100px) clamp(15px, 3vw, 40px);
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -31,23 +31,30 @@
 
 .faq-number {
   color: white;
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 2vw, 1.5rem);
   font-weight: 600;
-  padding: 20px;
-  border-radius: 10px;
+  padding: clamp(10px, 1.5vw, 20px);
+  border-radius: clamp(5px, 1vw, 10px);
   background: var(--gradient);
+  display: inline-block;
+  min-width: clamp(32px, 4vw, 48px);
+  height: clamp(32px, 4vw, 48px);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .faq h2 {
   color: var(--secondary-color);
-  font-size: 2.625rem;
+  font-size: clamp(1.5rem, 4vw, 2.625rem);
   text-transform: uppercase;
   letter-spacing: 0.09375rem;
   font-weight: 600;
   text-align: center;
   position: relative;
   padding-bottom: 0.9375rem;
-  max-width: 50rem;
+  max-width: min(50rem, 90%);
   margin: 0 auto 1rem;
 }
 
@@ -65,20 +72,20 @@
 
 .faq p {
   color: var(--text-color);
-  font-size: 1.125rem;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
   line-height: 1.6;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
+  max-width: min(800px, 90%);
+  margin: 0 auto clamp(1.5rem, 4vw, 3rem);
   opacity: 0.9;
 }
 
 .faq-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(45%, 350px), 1fr));
+  gap: clamp(12px, 2vw, 30px);
   justify-content: center;
-  max-width: 1200px;
+  max-width: min(1200px, 95%);
   margin: 0 auto;
 }
 
@@ -102,10 +109,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 30px;
+  padding: clamp(15px, 2vw, 25px) clamp(18px, 2.5vw, 30px);
   cursor: pointer;
   color: var(--text-color);
-  font-size: 1.125rem;
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   font-weight: 500;
   transition: all 0.3s ease;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
@@ -129,32 +136,32 @@
 }
 
 .faq-toggle {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: 300;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: clamp(24px, 3vw, 36px);
+  height: clamp(24px, 3vw, 36px);
   border-radius: 50%;
   color: var(--primary-color);
-  background: rgba(var(--primary-color-rgb), 0.1);
+  background: transparent;
 }
 
 .faq-item.active .faq-toggle {
   transform: rotate(180deg);
-  background: var(--primary-color);
-  color: white;
+  color: var(--primary-color);
+  background: transparent;
 }
 
 .faq-answer {
   height: 0;
   opacity: 0;
   overflow: hidden;
-  padding: 0 30px;
+  padding: 0 clamp(18px, 2.5vw, 30px);
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: clamp(0.8125rem, 1.2vw, 1rem);
   line-height: 1.6;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--background-color);
@@ -163,18 +170,18 @@
 .faq-item.active .faq-answer {
   height: auto;
   opacity: 1;
-  padding: 25px 30px;
+  padding: clamp(15px, 2vw, 25px) clamp(18px, 2.5vw, 30px);
   margin-top: 0;
 }
 
 .faq-toggle-all {
-  margin-top: 50px;
-  padding: 15px 30px;
+  margin-top: clamp(30px, 5vw, 50px);
+  padding: clamp(8px, 1.5vw, 15px) clamp(16px, 2vw, 30px);
   border: none;
   border-radius: 12px;
   background: var(--gradient);
   color: white;
-  font-size: 1.125rem;
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -205,7 +212,7 @@
   }
 
   .faq-grid {
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(min(45%, 300px), 1fr));
   }
 
   .faq-question {
@@ -239,8 +246,7 @@
 
   .faq-grid {
     grid-template-columns: 1fr;
-    max-width: 800px;
-    gap: 20px;
+    max-width: min(800px, 95%);
   }
 
   .faq-question {
@@ -284,7 +290,7 @@
   }
 
   .faq-grid {
-    gap: 15px;
+    max-width: min(600px, 95%);
   }
 
   .faq-question {
@@ -329,7 +335,7 @@
   }
 
   .faq-grid {
-    gap: 12px;
+    max-width: 100%;
   }
 
   .faq-question {
@@ -355,5 +361,12 @@
     margin-top: 30px;
     padding: 8px 16px;
     font-size: 0.875rem;
+  }
+
+  .faq-number {
+    font-size: 0.875rem;
+    padding: 8px;
+    min-width: 28px;
+    height: 28px;
   }
 }
